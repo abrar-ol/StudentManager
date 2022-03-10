@@ -12,29 +12,88 @@
   </div>
 </div>
 
+
+<!-- Loading Spinner -->
+<div *ngIf="loading">
+  <app-spinner></app-spinner>
+</div>
+
+<!-- Error Message -->
+<div *ngIf="!loading&&errorMessage">
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <p class="h4 text-danger fw-bold">{{errorMessage}}</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
 <!--Create Student Form-->
 <div class="container">
   <div class="row">
     <div class="col-sm-4">
-      <form>
+      <form (submit)="submit()" >
         <div class="mb-2">
-          <input type="text" class="form-control" placeholder="Name" >
+          <input
+          [(ngModel)]="student.name"
+          name="name"
+          type="text"
+          class="form-control"
+          placeholder="Name"
+          required>
         </div>
         <div class="mb-2">
-          <input type="text" class="form-control" placeholder="Photo URL" >
+          <input
+          [(ngModel)]="student.photo"
+          name="photo"
+          type="text"
+          class="form-control"
+          placeholder="Photo URL"
+          required>
         </div>
         <div class="mb-2">
-          <input type="email" class="form-control" placeholder="Email" >
+          <input
+          [(ngModel)]="student.email"
+          name="email"
+          type="email"
+          class="form-control"
+          placeholder="Email"
+          required>
         </div>
         <div class="mb-2">
-          <input type="number" class="form-control" placeholder="Mobile" >
+          <input
+          [(ngModel)]="student.mobile"
+          name="mobile"
+          type="number"
+          class="form-control"
+           placeholder="Mobile"
+           required>
         </div>
         <div class="mb-2">
-          <input type="text" class="form-control" placeholder="Level" >
+          <input
+          [(ngModel)]="student.level"
+          name="level"
+          type="text"
+          class="form-control"
+          placeholder="Level"
+          required>
         </div>
         <div class="mb-2">
-          <select class="form-control">
-            <option value="">Select a School</option>
+          <label>Select School:</label>
+          <select
+          required
+          class="form-control"
+          *ngIf="schools.length>0"
+          [(ngModel)]="student.schoolId"
+          name="schoolId">
+
+          <option
+             [value]="school.id"
+             *ngFor="let school of schools">
+             {{school.name}}</option>
+
           </select>
         </div>
         <div class="mb-2">
@@ -45,7 +104,7 @@
     </div>
     <div class="col-sm-4">
       <img
-      src="https://cdn-icons-png.flaticon.com/512/219/219986.png"
+      [src]="student.photo"
       class="contact-img"
       alt="Selected Img">
     </div>

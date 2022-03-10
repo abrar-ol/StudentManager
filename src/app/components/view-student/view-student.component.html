@@ -12,22 +12,38 @@
   </div>
 </div>
 
+<!-- Loading Spinner -->
+<div *ngIf="loading">
+  <app-spinner></app-spinner>
+</div>
+
+<!-- Error Message -->
+<div *ngIf="!loading&&errorMessage">
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <p class="h4 text-danger fw-bold">{{errorMessage}}</p>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- Student Details-->
-<div class="container">
+<div class="container" *ngIf="isNotEmpty()&&!loading">
   <div class="row  align-items-center">
     <div class="col-sm-4">
       <img
-      src="https://cdn-icons-png.flaticon.com/512/219/219986.png"
+      [src]="student.photo"
       class="contact-img-big"
       alt="Student Profile Img">
     </div>
     <div class="col-sm-6">
       <ul class="list-group">
-        <li class="list-group-item list-group-item-primary">Name : <span class="fw-bold">Name</span></li>
-        <li class="list-group-item list-group-item-primary">Email : <span class="fw-bold">Email</span></li>
-        <li class="list-group-item list-group-item-primary">Level : <span class="fw-bold">Level</span></li>
-        <li class="list-group-item list-group-item-primary">mobile : <span class="fw-bold">mobile</span></li>
-        <li class="list-group-item list-group-item-primary">School Name : <span class="fw-bold">School Name</span></li>
+        <li class="list-group-item list-group-item-primary">Name : <span class="fw-bold">{{student.name}}</span></li>
+        <li class="list-group-item list-group-item-primary">Email : <span class="fw-bold">{{student.email}}</span></li>
+        <li class="list-group-item list-group-item-primary">Level : <span class="fw-bold">{{student.level}}</span></li>
+        <li class="list-group-item list-group-item-primary">mobile : <span class="fw-bold">{{student.mobile}}</span></li>
+        <li class="list-group-item list-group-item-primary">School Name : <span class="fw-bold">{{school.name}}</span></li>
       </ul>
     </div>
   </div>
