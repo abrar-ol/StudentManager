@@ -10,6 +10,7 @@ import { EditStudentComponent } from './components/edit-student/edit-student.com
 import { ViewStudentComponent } from './components/view-student/view-student.component';
 import { SpinnerComponent } from './components/spinner/spinner.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

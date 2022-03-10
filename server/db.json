@@ -1,0 +1,48 @@
+{
+  "students":[
+    {
+      "id": "1",
+      "name": "Haya",
+      "email":"haya@hotmail.com",
+      "photo": "http://assets.stickpng.com/images/585e4bc4cb11b227491c3395.png",
+      "mobile":"0545304033",
+      "level":"three",
+      "schoolId":"1"
+    },
+    {
+      "id": "2",
+      "name": "Nourah",
+      "email":"norah@hotmail.com",
+      "photo": "https://cdn-icons-png.flaticon.com/512/219/219983.png",
+      "mobile":"0545304033",
+      "level":"One",
+      "schoolId":"2"
+    },
+    {
+      "id": "3",
+      "name": "Sarah",
+      "email":"Sarah@hotmail.com",
+      "photo": "https://www.seekpng.com/png/full/356-3562377_personal-user.png",
+      "mobile":"0545304033",
+      "level":"One",
+      "schoolId":"3"
+    }
+  ],
+  "schools":[
+    {
+      "id": "1",
+      "name": "schooling",
+      "logo":"https://png.pngtree.com/element_our/png_detail/20181227/school-logo-png_291909.jpg"
+    },
+    {
+      "id": "2",
+      "name": "Achademic",
+      "logo":"https://p7.hiclipart.com/preview/290/370/405/earth-solar-symbol-logo-college-school-logo-label.jpg"
+    },
+    {
+      "id": "3",
+      "name": "Mac Maple",
+      "logo":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcReiTPY4lDPjzgH1SWoUQRPcZhED7fAqT5eRQ&usqp=CAU"
+    }
+  ]
+}
