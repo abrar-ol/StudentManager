@@ -13,12 +13,17 @@ export class StudentManagerComponent implements OnInit {
   public students:IStudent[]=[];
   public errorMessage:string|null=null;
   public student:IStudent={}as IStudent;
-  public logos: string[]=[];;
+  public logos: string[]=[];
+  searchText!: string;
 
 
   constructor(private studentService:StudentService) { }
 
   ngOnInit(): void {
+    this.getAllStudent();
+  }
+
+  getAllStudent(){
     this.loading=true;
     this.studentService.getAllStudents().subscribe((data:IStudent[])=>{
       this.students=data;
@@ -41,6 +46,20 @@ export class StudentManagerComponent implements OnInit {
       this.loading=false;
     }
     );
+  }
+
+
+  delete(studentId: string){
+    if(studentId){
+      this.studentService.deleteStudent(studentId).subscribe(data=>{
+        this.getAllStudent();
+
+      },error=>{
+        this.errorMessage=error;
+
+      });
+    }
+
   }
 
 }
