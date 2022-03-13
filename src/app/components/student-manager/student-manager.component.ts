@@ -1,7 +1,7 @@
+import { ISchool } from 'src/app/models/iSchool';
 import { StudentService } from './../../services/student.service';
 import { IStudent } from './../../models/iStudent';
 import { Component, OnInit } from '@angular/core';
-import { ISchool } from 'src/app/models/iSchool';
 
 @Component({
   selector: 'app-student-manager',
@@ -12,8 +12,9 @@ export class StudentManagerComponent implements OnInit {
   public loading :boolean=false;
   public students:IStudent[]=[];
   public errorMessage:string|null=null;
-  public schoolLogos:string[]=[];
   public student:IStudent={}as IStudent;
+  public logos: string[]=[];;
+
 
   constructor(private studentService:StudentService) { }
 
@@ -23,15 +24,17 @@ export class StudentManagerComponent implements OnInit {
       this.students=data;
       this.loading=false;
 
-      data.forEach(student => {
-        this.studentService.getSchool(student).subscribe((school:ISchool)=>{
-          if(school.logo)
-          this.schoolLogos.push(school.logo);
-          else
-          this.schoolLogos.push("");
-        }
-        );
-      });
+      data.forEach((s,i)=>{
+
+        this.studentService.getSchool(s).subscribe((data:ISchool)=>{
+          if(data.logo)
+          this.logos[i]=(data.logo);
+         }, (error)=>{
+          this.errorMessage=error;
+          this.loading=false;
+        });
+
+      })
 
     }, (error)=>{
       this.errorMessage=error;

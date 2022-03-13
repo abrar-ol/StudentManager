@@ -68,9 +68,9 @@
               alt="Student Profile Pic"
               class="contact-img">
 
-              <span class="badge badge-on-image" *ngIf="schoolLogos.length>0&& !loading">
+              <span class="badge badge-on-image">
               <img
-              [src]="schoolLogos[i]"
+              [src]="logos[i]"
               alt="Student school logo"
               class="contact-img"
               style="width: 50px;">
@@ -89,7 +89,7 @@
               <a  class="btn btn-warning my-1" routerLink="/students/view/{{student.id}}">
                 <i class="fa fa-eye"></i>
               </a>
-              <a  class="btn btn-secondary my-1" routerLink="/students/edit/:studentId">
+              <a  class="btn btn-secondary my-1" routerLink="/students/edit/{{student.id}}">
                 <i class="fa fa-pen"></i>
               </a>
               <button class="btn btn-danger my-1">

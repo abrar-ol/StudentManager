@@ -16,25 +16,60 @@
 <div class="container">
   <div class="row">
     <div class="col-sm-4">
-      <form>
+      <form (submit)="submit()">
         <div class="mb-2">
-          <input type="text" class="form-control" placeholder="Name" >
+          <input
+          required="true"
+          [value]="student.name"
+          [(ngModel)]="student.name"
+          name="name"
+           type="text"
+           class="form-control"
+            placeholder="Name" >
         </div>
         <div class="mb-2">
-          <input type="text" class="form-control" placeholder="Photo URL" >
+          <input
+          required="true"
+          [value]="student.photo"
+          [(ngModel)]="student.photo"
+          name="photo"
+          type="text" class="form-control" placeholder="Photo URL" >
         </div>
         <div class="mb-2">
-          <input type="email" class="form-control" placeholder="Email" >
+          <input
+          required="true"
+          [value]="student.email"
+          [(ngModel)]="student.email"
+          name="email"
+          type="email" class="form-control" placeholder="Email" >
         </div>
         <div class="mb-2">
-          <input type="number" class="form-control" placeholder="Mobile" >
+          <input
+          required="true"
+          [value]="student.mobile"
+          [(ngModel)]="student.mobile"
+          name="mobile"
+          type="number" class="form-control" placeholder="Mobile" >
         </div>
         <div class="mb-2">
-          <input type="text" class="form-control" placeholder="Level" >
+          <input
+          required="true"
+          [value]="student.level"
+          [(ngModel)]="student.level"
+          name="level"
+          type="text" class="form-control" placeholder="Level" >
         </div>
         <div class="mb-2">
-          <select class="form-control">
+          <select class="form-control"
+          required="true"
+          [value]="student.schoolId"
+          [(ngModel)]="student.schoolId"
+          name="schoolId">
             <option value="">Select a School</option>
+            <option
+            [value]="school.id"
+            *ngFor="let school of schools">{{school.name}}</option>
+
           </select>
         </div>
         <div class="mb-2">
@@ -45,7 +80,7 @@
     </div>
     <div class="col-sm-4">
       <img
-      src="https://cdn-icons-png.flaticon.com/512/219/219986.png"
+      [src]="student.photo"
       class="contact-img"
       alt="Selected Img">
     </div>

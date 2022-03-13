@@ -33,7 +33,11 @@ export class AddStudentComponent implements OnInit {
   {
     this.studentService.createStudent(this.student).subscribe(
       (data)=>{
+        this.studentService.getAllSchool().subscribe(  (data)=>{
+          this.schools=data;
+        });
         this.router.navigate(['/']).then();
+
       },
       (error)=>{
         this.errorMessage=error;

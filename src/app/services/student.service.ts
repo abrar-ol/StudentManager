@@ -10,6 +10,7 @@ import { catchError, Observable, throwError } from 'rxjs';
 export class StudentService {
 
   private serverUrl:string='http://localhost:9000';
+  public schools:ISchool[]=[] as ISchool[];
 
   constructor(private http:HttpClient) { }
 
@@ -28,7 +29,7 @@ export class StudentService {
     return this.http.post<IStudent>(dataURL,student).pipe(catchError(this.handelError));
   }
 
-  public updateStudent(student:IStudent,studentId:IStudent):Observable<IStudent>{
+  public updateStudent(student:IStudent,studentId:string):Observable<IStudent>{
     let dataURL:string=`${this.serverUrl}/students/${studentId}`;
     return this.http.put<IStudent>(dataURL,student).pipe(catchError(this.handelError));
   }
@@ -42,6 +43,7 @@ export class StudentService {
     let dataURL:string=`${this.serverUrl}/schools`;
     return this.http.get<ISchool[]>(dataURL).pipe(catchError(this.handelError));
   }
+
 
   public getSchool(student:IStudent):Observable<ISchool>{
     let dataURL:string=`${this.serverUrl}/schools/${student.schoolId}`;
